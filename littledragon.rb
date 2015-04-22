@@ -109,13 +109,26 @@ class Dragon
   end
 end
 
-pet = Dragon.new 'Norbert'
-pet.feed
-pet.toss
-pet.walk
-pet.put_to_bed
-pet.rock
-pet.put_to_bed
-pet.put_to_bed
-pet.put_to_bed
-pet.put_to_bed
+print "Enter your baby dragon's name: "
+pet_name = gets.chomp
+pet = Dragon.new (pet_name)
+
+until @command == "let go" do
+  print "What whould you like to do for #{pet_name}?: "
+  @command = gets.chomp
+
+  if @command == "feed"
+    pet.feed
+  elsif @command == "walk"
+    pet.walk
+  elsif @command == "toss"
+    pet.toss
+  elsif @command == "rock"
+    pet.rock
+  elsif @command == "put to bed"
+    pet.put_to_bed
+  end
+
+end
+puts "You let #{pet_name} go in to the wild, now Khaleesi will take it and rule the world with it."
+
